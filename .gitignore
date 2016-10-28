@@ -44,5 +44,9 @@ jspm_packages
 # Output of 'npm pack'
 *.tgz
 
+#Sass and Compass
+.sass-cache
+assets/.sass-cache
+
 #OSX
 *.DS_Store
