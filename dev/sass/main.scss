@@ -1,0 +1,28 @@
+/* ============================
+VARIABLES
+============================ */
+
+@import 'compass/css3';
+@import 'variables/couleurs';
+@import 'variables/responsive';
+
+/* ============================
+RESET
+============================ */
+
+@import 'reset';
+@import 'normalize';
+
+/* ============================
+GENERAL
+============================ */
+
+@import 'general/html';
+@import 'general/header';
+@import 'general/footer';
+
+/* ============================
+PAGES
+============================ */
+
+@import 'pages/index';

@@ -27,42 +27,42 @@ gulp.task('build', function(){
 /*MINIFY CSS and TRANSFROM SCSS in CSS*/
 gulp.task('styles', function(){
 	/*CLEAN FOLDER*/
-	gulp.src('assets/sass')
-		.pipe(clean('src/css'));
-	gulp.src('assets/sass/*.scss')
+	gulp.src('dev/sass')
+		.pipe(clean('assets/css'));
+	gulp.src('dev/sass/*.scss')
 	    .pipe(compass({
-	      css: 'src/css',
-	      sass: 'assets/sass',
-	      images: 'assets/images',
+	      css: 'assets/css',
+	      sass: 'dev/sass',
+	      images: 'dev/img',
 	    }))
-	    .pipe(gulp.dest('src/css'))
+	    .pipe(gulp.dest('assets/css'))
 		.pipe(minifyCSS())
-		.pipe(gulp.dest('src/css'))
+		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'Styles task complete' }));
 });
 
 /*JOIN ALL SCRIPTS AND MINIFY*/
 gulp.task('scripts', function(){
 	/*CLEAN FOLDER*/
-	gulp.src('assets/script')
-		.pipe(clean('src/js'));
-	gulp.src(['./assets/script/vendor/*.js', './assets/script/*.js'])
+	gulp.src('dev/js')
+		.pipe(clean('assets/js'));
+	gulp.src(['dev/js/vendor/*.js', 'dev/js/*.js'])
 	    .pipe(jshint())
 	    .pipe(jshint.reporter('default'))
 	    .pipe(concat('main.js'))
-	    .pipe(gulp.dest('src/js'))
+	    .pipe(gulp.dest('assets/js'))
 	    .pipe(uglify())
-	    .pipe(gulp.dest('src/js'))
+	    .pipe(gulp.dest('assets/js'))
 	    .pipe(notify({ message: 'Scripts task complete' }));
 });
 
 /*OPTIMIZE IMAGES*/
 gulp.task('images', function(){
 	/*CLEAN FOLDER*/
-	gulp.src('assets/images')
-		.pipe(clean('src/img'));
-	gulp.src('assets/images/*')
+	gulp.src('dev/img')
+		.pipe(clean('assets/img'));
+	gulp.src('dev/img/*')
         .pipe(imagemin([imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo()]))
-        .pipe(gulp.dest('src/img'))
+        .pipe(gulp.dest('assets/img'))
         .pipe(notify({ message: 'Images task complete' }));
 });
