@@ -1,22 +1,44 @@
 {
   "name": "videyo",
-  "version": "1.0.0",
-  "description": "Youtube Like with Angular",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Video Platform for viewers and Videasts!",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server.js",
+    "dev": "gulp watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trenyture/Videyo.git"
+    "url": "git+https://github.com/trenyture/Restaurant.git"
   },
-  "author": "",
+  "keywords": [
+    "Videyo",
+    "Simon",
+    "Trichereau",
+    "Youtube",
+    "Node",
+    "Video",
+    "Javascript",
+    "MongoDB",
+    "Platform"
+  ],
+  "author": "Simon Trichereau",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trenyture/Videyo/issues"
+    "url": "https://github.com/trenyture/Restaurant/issues"
   },
-  "homepage": "https://github.com/trenyture/Videyo#readme",
+  "homepage": "https://github.com/trenyture/Restaurant#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-imagemin": "^3.1.0",
+    "gulp-jshint": "^2.0.2",
+    "gulp-minify-css": "^1.2.4"
+  },
   "devDependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
     "gulp": "^3.9.1",
     "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.6.0",
@@ -26,13 +48,10 @@
     "gulp-minify-css": "^1.2.4",
     "gulp-notify": "^2.2.0",
     "gulp-uglify": "^2.0.0",
-    "jshint": "^2.9.4"
-  },
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-compass": "^2.1.0",
-    "gulp-imagemin": "^3.1.0",
-    "gulp-jshint": "^2.0.2",
-    "gulp-minify-css": "^1.2.4"
+    "gulp-watch": "^4.3.11",
+    "jshint": "^2.9.4",
+    "mongodb": "^2.2.30",
+    "pug": "^2.0.0-rc.3",
+    "serve-favicon": "^2.4.3"
   }
 }

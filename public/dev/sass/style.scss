@@ -1,0 +1,19 @@
+/*** VARIABLES et FONCTIONS ***/
+@import 'compass/css3';
+@import 'variables/colors';
+@import 'variables/responsive';
+@import 'variables/dimensions';
+
+/*** GENERAL ***/
+@import 'general/normalize';
+@import 'general/reset';
+@import 'general/html';
+@import 'general/forms';
+
+/*** PARTIALS ***/
+@import 'partials/header';
+@import 'partials/footer';
+
+/*** PAGES ***/
+@import 'pages/index';
+@import 'pages/connection';

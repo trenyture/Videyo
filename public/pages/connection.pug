@@ -1,0 +1,15 @@
+include ../partials/head
+include ../partials/header
+main#connection
+	section
+		h2 Veuillez vous connecter
+		form#connection_form.formulaire
+			div.form-group
+				label(for="pseudo") Identifiant #[sup *]
+				input(type="text" name="pseudo" id="pseudo" required)
+			div.form-group
+				label(for="password") Mot de passe #[sup *]
+				input(type="password" name="password" id="password" required)
+			ul#error
+			button(type="submit") #[span.lnr.lnr-location] Se Connecter
+include ../partials/footer

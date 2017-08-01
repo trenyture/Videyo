@@ -1,0 +1,19 @@
+header
+	h1 Videyo
+	nav
+		ul
+			if connected && role === 'administrateur'
+				li
+					a(href="#") #[span.lnr.lnr-store] Administration
+			else if connected && role === 'serveur'
+				li
+					a(href="#") #[span.lnr.lnr-phone] Service
+			else if connected && role === cuisine
+				li
+					a(href="#") #[span.lnr.lnr-dinner] Cuisine
+			else
+				li
+					a(href="/connection") #[span.lnr.lnr-user] Se connecter
+			if connected
+				li
+					a(href="/deconnection") #[span.lnr.lnr-power-switch] Déconnexion

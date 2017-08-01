@@ -1,0 +1,59 @@
+form.formulaire{
+	overflow:hidden;
+
+	div.form-group{
+		position: relative;
+		width:100%;
+		height:100%;
+		margin-top:3rem;
+
+		input,textarea,select{
+			width:100%;
+			height: 4.5rem;
+			padding:0 .5rem;
+			font-family: 'Oxygen', Arial, sans-serif;
+			font-size: 1.6rem;
+			border:none;
+			color: $black;
+			background-color: $yellow;
+		}
+
+		label{
+			font-weight: bold;
+			position:absolute;
+			left:0;
+			bottom:0;
+			padding:0 .5rem;
+			z-index: 9;
+			width:100%;
+			line-height: 4.5rem;
+			color:$black;
+			@include transition(all .5s);
+
+			&.active{
+				bottom:100%;
+				line-height: 1;
+				color:$brown;
+			}
+
+			&.error{
+				color:$red;
+			}
+		}
+	}
+	button[type="submit"]{
+		margin-top:3rem;
+		float:right;
+		padding:1rem 2rem;
+		border:none;
+		background-color:$black;
+		cursor: pointer;
+		color:$yellow;
+		@include transition(all .5s);	
+
+		&:hover{
+			background-color:$blue;
+			color:$white;
+		}
+	}
+}
