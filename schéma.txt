@@ -1,0 +1,113 @@
+Videyo 
+
+Une plateforme Web simple, Rapide et faite pour les Vidéastes par les viewers!
+Ici ce n'est pas les publicitaires qui régissent les vidéastes, ce sont les vidéastes qui sont maîtres!
+
+Règles : 
+	- Les vidéos peuvent contenir tous types de contenus SAUF Pornographique, Violences Physiques et Caractère Haineu envers des communautés. Oui, les vidéos de propagande pour n'importe quel groupe peuvent être diffusé du moment qu'elles respectent ces 3 points! En cas de signalement : 
+			-> Un comité jugera la vidéo et pourra procéder à son élimination totale (voire l'élimination de la chaine entière) ou non
+	- Pour qu'une vidéo gagne une vue supplémentaire, il faut qu'elle ait était vue 85% de son temps total et par une personne différente à quelqu'un qui la déjà vue.
+	- Le référencement des vidéos se fera uniquement pour les vidéos publiques par l'addition de notes de la manière suivante : 
+			-> 5 points pour la date (-1 point le lendemain de la publication et -1 point par semaines après la publication)
+			-> 5 points pour le ratio "J'aime / J'aime pas"
+			-> (a suivre...)
+			***  Attention, aucun favoritisme sur le nombre d'abonnés ou le nombre de vues, petits et grands ont les mêmes chances d'apparaître dans les "nouveautés"  ***
+	- Les commentaires seront à la solde des Vidéastes
+	
+	/*-------------------------- FUTUR PLUS OU MOINS PROCHE ---------------------------*/
+	- Les vidéos peuvent être monétisées, alors dans ce cas se lira une publicité de 6 secondes avant la-dite vidéos. Pour être monétisée : 
+			-> La vidéo doit durer plus de 2 minutes
+			-> La pub doit avoir était vue dans son intégralité!
+	- Dans le meilleur des mondes, le vidéaste gagnera 1euro pour 1000 vues monétisées!
+	- Le payment se fera par Paypal tous les 1er du mois (l'activation du compte vidéaste ne se fera uniquement par association d'un compte Paypal) en fonction des vues monétisées qu'aura fait le vidéastes.
+	- Les publicité seront traité de telle sorte :
+			-> Soumission par mail et autorisation uniquement par un Super Admin si le format est respecté (6 sec) et si la vidéo répond au mêmes règles que celles des vidéastes.
+			-> Une solde de vues sera délivrée suivant le ratio : 5euros pour 1000 vues.
+			-> Lorsque le solde est bas, on peut le renouveler ou alors la publicité sera supprimée après 1 mois sans solde. 
+	/*--------------------------                            ---------------------------*/
+
+Technologies : 
+	NodeJS
+	MongoDB
+	HTML 5
+	CSS 3
+	jQuery
+	FFmpeg
+	Gravatar
+
+Catégories :
+	- Animaux
+	- Beauté & Mode
+	- Cinéma et Animation
+	- Cuisine
+	- Divertissement
+	- Éducatif
+	- Jeux Vidéos
+	- Mécanique
+	- Musique
+	- News & Politique
+	- People
+	- Sciences
+	- Sports
+	- Technologies
+	- Voyage
+
+Les bases de données
+
+	Vidéos -> La base principale en fait!
+		- ID 
+		- Titre
+		- Description
+		- Miniature
+		- Auteur
+		- Date de publication
+		- Type (Public / Privé)
+		- Ratio
+		- Vues
+		- Vues Monétisées
+		- Commentaires :
+			- auteur
+			- contenu
+			- date
+			- ratio (like / dislike)
+
+	Utilisateurs -> La base pour s'authentifier (obligatoire pour voir des vidéos)
+		- ID
+		- Mail
+		- Pseudonyme
+		- Mot de passe (encrypté)
+		- Avatar (Gravatar)
+		- Date d'enregistrement
+		- Abonnés
+		- Abonnements
+		- Profil (Vidéaste / Viewer)
+		
+	SuperAdmins -> La base pour ceux qui peuvent gérer la plateforme (relation avec Utilisateurs)
+		- ID
+		- Role
+
+	Playlists -> La base pour ceux qui veulent créer des Playlists
+		- ID
+		- Nom
+		- Créateur
+		- Type (privée / semi-publique / publique)
+
+	Publicités -> La base pour les publicités
+		- ID 
+		- Titre
+		- Lien
+		- Auteur mail
+		- Date de publication
+		- Vues Restantes
+
+
+
+Pages : 
+
+	Index (si connecter)
+	Login
+	Register
+	Watch
+	Playlists
+	Abonnements
+	Profil

@@ -1,59 +1,93 @@
-form.formulaire{
-	overflow:hidden;
+form.formulaire {
+	overflow: hidden;
 
-	div.form-group{
+	input[type="checkbox"], input[type="radio"]{
+		margin-right: .5rem;
+	}
+
+	div.form-group {
 		position: relative;
-		width:100%;
-		height:100%;
-		margin-top:3rem;
+		width: 100%;
+		margin: 1.5rem 0;
+		display: inline-block;
 
-		input,textarea,select{
-			width:100%;
+		input, textarea, select {
+			width: 100%;
 			height: 4.5rem;
-			padding:0 .5rem;
-			font-family: 'Oxygen', Arial, sans-serif;
+			padding: 0 .5rem;
+			font-family: $font_general;
 			font-size: 1.6rem;
-			border:none;
+			border: none;
 			color: $black;
 			background-color: $yellow;
 		}
 
-		label{
+		label {
 			font-weight: bold;
-			position:absolute;
-			left:0;
-			bottom:0;
-			padding:0 .5rem;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			padding: 0 .5rem;
 			z-index: 9;
-			width:100%;
+			width: 100%;
 			line-height: 4.5rem;
-			color:$black;
-			@include transition(all .5s);
+			color: $black;
 
-			&.active{
-				bottom:100%;
+			@include transition(all 0.5s);
+
+			&.active {
+				bottom: 100%;
 				line-height: 1;
-				color:$brown;
+				color: $brown;
 			}
 
-			&.error{
-				color:$red;
+			&.error {
+				color: $red;
 			}
 		}
 	}
-	button[type="submit"]{
-		margin-top:3rem;
-		float:right;
-		padding:1rem 2rem;
-		border:none;
-		background-color:$black;
-		cursor: pointer;
-		color:$yellow;
-		@include transition(all .5s);	
 
-		&:hover{
-			background-color:$blue;
-			color:$white;
+	a.btn-other {
+		float: left;
+		display: block;
+		margin-top: 3rem;
+		background: $brown;
+		padding: 1.15rem 2rem;
+		color: $blue;
+		cursor: pointer;
+		text-decoration: none;
+
+		@include transition(all 0.5s);
+
+		&:hover {
+			background-color: $blue;
+			color: $white;
+		}
+	}
+
+	button[type="submit"] {
+		margin-top: 3rem;
+		float: right;
+		padding: 1rem 2rem;
+		border: none;
+		background-color: $black;
+		cursor: pointer;
+		color: $yellow;
+
+		@include transition(all 0.5s);
+
+		&:hover {
+			background-color: $blue;
+			color: $white;
+		}
+	}
+
+	ul#error {
+		margin-top: 1.5rem;
+
+		li {
+			color: red;
+			font-weight: bold;
 		}
 	}
 }

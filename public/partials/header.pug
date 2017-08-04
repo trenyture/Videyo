@@ -1,19 +1,18 @@
 header
-	h1 Videyo
-	nav
-		ul
-			if connected && role === 'administrateur'
+	h1 
+		a(href="/") Videyo
+	if logged && logged === true
+		form#search
+			input#query(type="text" name="query" placeholder="Rechercher..." autofocus)
+			button(type="submit") #[span.lnr.lnr-magic-wand]
+			ul#results_query.hidden
+		nav
+			ul
 				li
-					a(href="#") #[span.lnr.lnr-store] Administration
-			else if connected && role === 'serveur'
-				li
-					a(href="#") #[span.lnr.lnr-phone] Service
-			else if connected && role === cuisine
-				li
-					a(href="#") #[span.lnr.lnr-dinner] Cuisine
-			else
-				li
-					a(href="/connection") #[span.lnr.lnr-user] Se connecter
-			if connected
-				li
-					a(href="/deconnection") #[span.lnr.lnr-power-switch] Déconnexion
+					a(href="#") #[span.lnr.lnr-user] Mon Compte
+					ul.submenu
+						li
+							a(href="#") #[span.lnr.lnr-power-switch] Mes Playlists
+							a(href="#") #[span.lnr.lnr-power-switch] Mes Abonnements
+							a(href="#") #[span.lnr.lnr-cog] Mes informations
+							a(href="/logout") #[span.lnr.lnr-power-switch] Déconnexion

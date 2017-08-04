@@ -3,12 +3,15 @@
 @import 'variables/colors';
 @import 'variables/responsive';
 @import 'variables/dimensions';
+@import 'variables/fonts';
 
 /*** GENERAL ***/
 @import 'general/normalize';
 @import 'general/reset';
 @import 'general/html';
 @import 'general/forms';
+@import 'general/listVideos';
+@import 'general/modal';
 
 /*** PARTIALS ***/
 @import 'partials/header';
@@ -16,4 +19,8 @@
 
 /*** PAGES ***/
 @import 'pages/index';
-@import 'pages/connection';
+@import 'pages/login';
+
+
+
+@import 'pages/errorPage';

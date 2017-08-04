@@ -6,10 +6,11 @@ html{
 	}
 
 	body{
-		font-family: 'Oxygen', Arial, sans-serif;
+		font-family: $font_general;
 		font-size: 1.6rem;
 		color: $black;
 		background-color: $white;
+		margin-top:5rem;
 
 		main{
 			display: block;

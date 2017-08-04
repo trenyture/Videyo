@@ -3,4 +3,11 @@ footer{
 	background-color:$black;
 	color:$white;
 	text-align:center;
+
+	&.to_bottom{
+		position:fixed;
+		bottom:0;
+		left:0;
+		width:100%;
+	}
 }

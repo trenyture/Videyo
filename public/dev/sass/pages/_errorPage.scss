@@ -1,0 +1,35 @@
+main#error_page{
+	section{
+		text-align: center;
+
+		h2{
+			font-size: 15rem;
+			font-weight:bold;
+
+			&:after{
+				left:50%;
+				margin-left: -5rem;
+			}
+		}
+		h3{
+			color:$brown;
+			font-size: 5rem;
+			margin:1rem 0;
+		}
+		p{
+			color:$black;
+			font-size: 2rem;
+			margin-bottom: 5rem;
+
+			a{
+				text-decoration:none;
+				color:$brown;
+				text-transform: uppercase;
+
+				&:hover{
+					color:$blue;
+				}
+			}
+		}
+	}
+}

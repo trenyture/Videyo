@@ -1,15 +1,18 @@
 include ../partials/head
 include ../partials/header
-main#connection
+
+main#login
 	section
 		h2 Veuillez vous connecter
-		form#connection_form.formulaire
+		form#login_form.formulaire
 			div.form-group
-				label(for="pseudo") Identifiant #[sup *]
+				label(for="pseudo") Identifiant ou Email #[sup *]
 				input(type="text" name="pseudo" id="pseudo" required)
 			div.form-group
 				label(for="password") Mot de passe #[sup *]
 				input(type="password" name="password" id="password" required)
 			ul#error
+			a.btn-other(href="/register") Créer un Compte
 			button(type="submit") #[span.lnr.lnr-location] Se Connecter
+
 include ../partials/footer

@@ -127,10 +127,4 @@ app.get('/logout', function(req, res) {
 	});
 });
 
-// 404 page
-app.use(function(req,res){
-	res.status(404);
-	res.render('404');
-});
-
 app.listen(6565);
