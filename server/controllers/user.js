@@ -3,6 +3,8 @@
 let sess;
 
 function index (req, res) {
+	let id = req.params.id;
+	console.log(id);
 	sess = req.session;
 	if (sess.logged === true) {
 		res.render('index', {logged: true, name: sess.pseudo, });
@@ -11,12 +13,6 @@ function index (req, res) {
 	}
 }
 
-function error(req, res) {
-	res.status(404);
-	res.render('404');
-}
-
 module.exports = {
-	index: index,
-	error: error
+	index: index
 };
