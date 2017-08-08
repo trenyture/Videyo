@@ -5,7 +5,7 @@ var sess;
 function index (req, res) {
 	sess = req.session;
 	if (sess.logged === true) {
-		res.render('index', {logged: true, name: sess.pseudo});
+		res.render('index', {logged: true, name: sess.pseudo, });
 	} else {
 		res.redirect('/login');
 	}

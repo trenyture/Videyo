@@ -5,8 +5,6 @@ const
 	session 	= require('express-session'),
 	favicon 	= require('serve-favicon'),
 	bodyParser 	= require('body-parser'),
-	mongo 		= require('mongodb'),
-	database 	= new mongo.Db('videyoBDD', new mongo.Server('localhost', 27017, {auto_reconnect: true})),
 	server 		= express();
 
 function create(config){
@@ -18,8 +16,7 @@ function create(config){
 	server.set('views', config.views);
 	server.set('view engine', config.engine);
 
-	// Returns middleware that parses json
-	server.use(bodyParser.json());
+	// Returns middleware
 	server.use(session({secret: config.secret}));
 	server.use(favicon(config.favicon));
 	server.use('/assets', express.static(config.assets));

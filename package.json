@@ -1,15 +1,11 @@
 {
   "name": "videyo",
-  "version": "2.0.0",
-  "description": "Video Platform for viewers and Videasts!",
-  "main": "server.js",
+  "version": "0.1.0",
+  "description": "Video Platform for Viewers and Videasts!",
+  "main": "index.js",
   "scripts": {
-    "test": "node server.js",
+    "test": "node index.js",
     "dev": "gulp watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/trenyture/Restaurant.git"
   },
   "keywords": [
     "Videyo",
@@ -29,11 +25,13 @@
   },
   "homepage": "https://github.com/trenyture/Restaurant#readme",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "gulp": "^3.9.1",
     "gulp-compass": "^2.1.0",
     "gulp-imagemin": "^3.1.0",
     "gulp-jshint": "^2.0.2",
     "gulp-minify-css": "^1.2.4",
+    "hashids": "^1.1.1",
     "mongodb": "^2.2.30",
     "nodemailer": "^4.0.1"
   },

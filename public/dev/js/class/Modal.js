@@ -22,4 +22,11 @@ function Modal (title,message)
 	this.modal.find('#modal_content').find('#modal_close').click(function(){
 		$('body #modal').remove();
 	});
+
+	$(window).keydown(function(e){
+		if(e.which === 27)
+		{
+			$('body #modal').remove();
+		}
+	});
 }
