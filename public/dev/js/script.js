@@ -8,7 +8,12 @@
 		{
 			app.resize();
 			app.search();
+
 			var idPage = $('main').attr('id');
+			/*****
+			//DOESN'T WORK
+			app.idPage.init();
+			*****/
 			idPage = idPage.split(' ');
 			for(var i = 0; i < idPage.length; i++){
 				switch(idPage[i])
@@ -73,10 +78,38 @@
 			$('form#login_form').submit(function(e)
 			{
 				e.preventDefault();
-				var modal = new Modal('Connexion', '<p>Veuillez patienter</p>');
-				modal.run();
-				app.forms.submit(this);
+				var valid = app.login.validate(this);
+				if (valid === true)
+				{
+					var modal = new Modal('Connexion', '<p>Veuillez patienter</p>');
+					modal.run();
+					app.forms.submit(this);
+				}
+				else
+				{
+					var lisError = '';
+					for(var i = 0; i < valid.length; i++){
+						if (valid[i] !== true) {
+							lisError += '<li>'+valid[i]+'</li>';
+						}
+					}
+					$('ul#error').html(lisError);
+				}
 			});
+		},
+		validate : function(form)
+		{
+			var validate =	new Validator();
+			var pseudo = validate.pseudo($(form).find('input#pseudo').val());
+			var password = validate.password($(form).find('input#password').val());
+			if (pseudo === true && password === true)
+			{
+				return true;
+			}
+			else
+			{
+				return [pseudo, password];
+			}
 		}
 	};
 
@@ -86,10 +119,37 @@
 			$('form#register_form').submit(function(e)
 			{
 				e.preventDefault();
-				var modal = new Modal('Inscription', '<p>Veuillez patienter</p>');
-				modal.run();
-				app.forms.submit(this);
+				var valid = app.register.validate(this);
+				if (valid === true)
+				{
+					var modal = new Modal('Inscription', '<p>Veuillez patienter</p>');
+					modal.run();
+					app.forms.submit(this);
+				}
+				else
+				{
+					var lisError = '';
+					for(var i = 0; i < valid.length; i++){
+						if (valid[i] !== true) {
+							lisError += '<li>'+valid[i]+'</li>';
+						}
+					}
+					$('ul#error').html(lisError);
+				}
 			});
+		},
+		validate : function(form)
+		{
+			var validate = new Validator();
+			var mail = validate.email($(form).find('#mail').val());
+			var pseudo = validate.pseudo($(form).find('#pseudo').val());
+			var password = validate.email($(form).find('#password').val(),$(form).find('#password_verif').val());
+			if (mail === true && pseudo === true && password === true)
+			{
+				return true;
+			}else{
+				return [mail, pseudo, password];
+			}
 		}
 	};
 
@@ -124,6 +184,12 @@
 		{
 			nUrl = (typeof nUrl === 'undefined') ? '/' : nUrl;
 			var datos = $(form).serializeObject();
+			console.log(datos);
+			$.each(datos, function(index, value)
+			{
+				datos[index] = value.trim();
+			});
+			console.log(datos);
 			$.ajax({
 				type:'POST',
 				data: datos,

@@ -39,13 +39,13 @@ function create(req, res)
 					db.collection('usersBDD', function(err, usersdb) { 
 					    if (!err) {
 					    	var cursor = usersdb.find({ 
-					    		$or : [{"pseudo": req.body.pseudo}, {"mail": req.body.pseudo}]
+					    		$or : [{"pseudo": req.body.pseudo.trim()}, {"mail": req.body.pseudo.trim()}]
 					    	}); 
 							cursor.toArray(function(err, doc) {
 								database.close();
 								if(!err){
 									if(doc.length > 0){
-										crypt.compare(req.body.password, doc[0].password, function(err, cond) {
+										crypt.compare(req.body.password.trim(), doc[0].password, function(err, cond) {
 											if(cond === true){
 												let sess = req.session;
 												sess.pseudo = req.body.pseudo;
