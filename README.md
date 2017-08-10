@@ -152,7 +152,8 @@ Il va vous falloir 3 terminaux différents qui devront tous êtres ouverts depui
 		| - database
 			| (collection).json
 
-## C'est parti pour l'aventure!!!
+## BANGAAA!
+> Allez hop on y va, en route pour l'aventure !
 
 ## Copyright
 **© Simon Trichereau - 2016**<br/>
