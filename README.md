@@ -1,15 +1,15 @@
 # VideYo
-Platform for video just for fun, relax!
+Video Platform just for fun, relax! Take it eaaaaaaaasyyyyyyyiiiiieee :)
 
 # Technologies
-	- HTML 5 
-	- CSS -> SASS
+	- HTML 5
+	- SASS -> CSS
 	- JS / jQuery
 	- NodeJS
 	- MongoDB
 	- Gulp
 
-# What should I install? :O 
+# What should I install? :O
 - Install NODE js : (https://nodejs.org/)[https://nodejs.org/] 
 - Install Gulp : (http://gulpjs.com/)[https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md]
 - Install Mongo : (https://www.mongodb.com/)[https://www.mongodb.com/]
@@ -18,64 +18,64 @@ Platform for video just for fun, relax!
 - Now : **GOOD LUCK**
 
 # How the fuck that's work?
-**Et bien c'est trÃ¨s simple, en fait (yu-gi-oh)... ... Oui cette blague est datÃ©e...**
-Bon plus sÃ©rieusement, c'est trÃ¨s simple, il faut distinguer 3 branches diffÃ©rentes : **Le front, le back et le serveur** ... Bon ici, vous vous rendrez compte que tous sont intrinsÃ¨quement liÃ©s! _NODEJS_ relie tout! 
+**Et bien c'est très simple, en fait il suff...(yu-gi-oh) ... _Oui cette blague est datée_...**
+Bon plus sérieusement, c'est très simple, il faut distinguer 3 branches différentes : **Le front, le back et le serveur** ... Bon ici, vous vous rendrez compte que tous sont intrinsèquement liés! _NODEJS_ relie tout! 
 Oui dis comme cela ca a pas l'air simple... laissez moi vous expliquer:
 
 # SERVEUR
-Pour lancer le serveur, il suffit dans un terminal de faire :  ```node index.js``` Cela a pour effet de lancer l'exÃ©cution du fichier index.js par node, fichier qui lie tous les autres fichiers... 
-**Attention** il faut Ã©galement lancer MongoDB pour avoir accÃ¨s a la base de donnÃ©e, pour cela faites dans un autre terminal : ```mongod``` (ne coupez pas le processus et laissez le terminal ouvert)
+Pour lancer le serveur, il suffit dans un terminal de faire :  ```node index.js``` Cela a pour effet de lancer l'exécution du fichier index.js par node, fichier qui lie tous les autres fichiers... 
+**Attention** il faut également lancer MongoDB pour avoir accès a la base de donnée, pour cela faites dans un autre terminal : ```mongod``` (ne coupez pas le processus et laissez le terminal ouvert)
 *Mais dis moi Jamy, il n'y a rien dans index.js...*
 Mais oui c'est clair!
-En fait tout est fait par des includes! L'index va inclure un fichier de router ````server/index.js``` qui lui mÃªme va inclure les diffÃ©rentes routes en fonction de l'URL visitÃ©es. Exemple, si je vais sur l'URL **_/login_** le serveur va me charger la route correspondant : ```server/routes/login.js``` en MVC classique on pourrait assimiler ce fichier au modÃ¨le car c'est lui qui va appeller le controller mais il a aussi l'avantage de gÃ©rer les diffÃ©rentes mÃ©thodes. (j'y reviendrais)
-DerniÃ¨re chose, le fichier ```index.js``` va inclure Ã©galement le fichier ```server/configs.js``` qui comme son nom l'indique est un fichier de configuration du serveur... Pour consulter le site, il vous suffit de vous connecter Ã  ```http://localhost:6565/``` qui est l'URL configurÃ©e par ce fameux fichier configs.
+En fait tout est fait par des includes! L'index va inclure un fichier de router ````server/index.js``` qui lui même va inclure les différentes routes en fonction de l'URL visitées. Exemple, si je vais sur l'URL **_/login_** le serveur va me charger la route correspondant : ```server/routes/login.js``` en MVC classique on pourrait assimiler ce fichier au modèle car c'est lui qui va appeller le controller mais il a aussi l'avantage de gérer les différentes méthodes. (j'y reviendrais)
+Dernière chose, le fichier ```index.js``` va inclure également le fichier ```server/configs.js``` qui comme son nom l'indique est un fichier de configuration du serveur... Pour consulter le site, il vous suffit de vous connecter à ```http://localhost:6565/``` qui est l'URL configurée par ce fameux fichier configs.
 
 # BACK-END
-Bon le controlleur sert clairement de Back-End, il va mettre en relation le front et la base de donnÃ©e puis envoyer la vue Ã  l'utilisateur. Si nous reprenons notre exemple du login, le controller est : ```server/controllers/login.js```. Vous remarquerez que le controller Ã  plusieurs fonctions (index, create, destroy, nawak...) en fait c'est trÃ¨s simple, lorsque vous accÃ©dez Ã  une page il y a des mÃ©thodes, les plus connues sont **GET** et **POST**, dans une API REST il y en a d'avantage et chacune d'elles _devrait_ permettre une action diffÃ©rente :
+Bon le controlleur sert clairement de Back-End, il va mettre en relation le front et la base de donnée puis envoyer la vue à l'utilisateur. Si nous reprenons notre exemple du login, le controller est : ```server/controllers/login.js```. Vous remarquerez que le controller à plusieurs fonctions (index, create, destroy, nawak...) en fait c'est très simple, lorsque vous accédez à une page il y a des méthodes, les plus connues sont **GET** et **POST**, dans une API REST il y en a d'avantage et chacune d'elles _devrait_ permettre une action différente :
 
-Method | Action | Descritpioin
+Method | Action | Descritpion
 --- | --- | ---
-GET | Lire | La methode Get sert Ã  lire une page web, c-a-d que si vous lui passez une URL elle va lire les donnÃ©es dans la base de donnÃ©e et vous renvoyer une vue en fonction... Bref c'est ce qui renvoie ````L'index```
-POST | CrÃ©er | Cette mÃ©thode est utilisÃ©e pour passer des donnÃ©es de la vue au serveur (Ã  la diffÃ©rence de Get qui passe les donnÃ©es du serveur Ã  la vue). Elle est utilisÃ©e pour sauvegarder des donnÃ©es dans la base de donnÃ©e
-PUT | Actualiser / Remplacer | Cette mÃ©thode **devrait** Ãªtre utilisÃ©e pour actualiser tous les paramÃ¨tres d'une table... Exemple : Vous souhaiter modifier votre table ```User``` en ajoutant un paramÃ¨tre "date de naissance" et vous souhaitez que toutes les donnÃ©es soient sauvegardÃ©es... 
-PATCH | Actualiser / Modifier | Cette mÃ©thode est utilisÃ©e afin de modifier un paramÃ¨tre d'un champs d'une table... Exemple, vous voulez changer de pseudonnyme... Utiliser **PATCH**... Bon le plus souvent c'est la mÃ©thode PUT qui est utilisÃ©e pour cela (lisez l'encart aprÃ¨s le tableau, vous comprendrez pourquoi)
+GET | Lire | La methode Get sert à lire une page web, c-a-d que si vous lui passez une URL elle va lire les données dans la base de donnée et vous renvoyer une vue en fonction... Bref c'est ce qui renvoie ````L'index```
+POST | Créer | Cette méthode est utilisée pour passer des données de la vue au serveur (à la différence de Get qui passe les données du serveur à la vue). Elle est utilisée pour sauvegarder des données dans la base de donnée
+PUT | Actualiser / Remplacer | Cette méthode **devrait** être utilisée pour actualiser tous les paramètres d'une table... Exemple : Vous souhaiter modifier votre table ```User``` en ajoutant un paramètre "date de naissance" et vous souhaitez que toutes les données soient sauvegardées... 
+PATCH | Actualiser / Modifier | Cette méthode est utilisée afin de modifier un paramètre d'un champs d'une table... Exemple, vous voulez changer de pseudonnyme... Utiliser **PATCH**... Bon le plus souvent c'est la méthode PUT qui est utilisée pour cela (lisez l'encart après le tableau, vous comprendrez pourquoi)
 DELETE | Supprimer | J'ai vraiment besoin d'expliquer? Bah euh en gros vous **deletez** quoi...
 
-## Des questions? Oui je vous Ã©coute
-- Est-ce qu'on doit vraiment suivre Ã  la rÃ¨gle ces _RÃ¨gles_? 
-	Et bien ... non, ces rÃ¨gles lÃ  sont les rÃ¨gles d'usages, mais rien ne vous empÃªche d'utiliser le DELETE pour afficher vos Ã©lÃ©ments c'est pour cela que la mÃ©thode PATCH est souvent mise Ã  l'Ã©cart pour laisser place Ã  la mÃ©thode PUT... 
-- Mais comment fait-on pour dire quelle mÃ©thode utiliser? 
-	Alors lÃ  nous touchons un point sensible... Les navigateurs d'aujourd'hui (et surement de demain) ne comprennent que 2 mÃ©thodes, **GET** et **POST** et donc en navigant d'URL en URL il est impossible d'utiliser le pannel de mÃ©thodes proposÃ©es... Ceci dit, grÃ¢ce Ã  **Ajax**, nous pouvons dire quelle mÃ©thode en utilisant le paramÃ¨tre ```method``` et ainsi nous pouvons communiquer avec notre serveur
-- Ok ... mais tu t'Ã©loignes pas un peu du sujet lÃ ?
-	Ouf, j'avais peur que personne ne me fasse revenir Ã  mes moutons donc c'est parti:
+## Des questions? Oui je vous écoute
+- Est-ce qu'on doit vraiment suivre à la règle ces _Règles_?
+	Et bien ... non, ces règles là sont les règles d'usages, mais rien ne vous empêche d'utiliser le DELETE pour afficher vos éléments c'est pour cela que la méthode PATCH est souvent mise à l'écart pour laisser place à la méthode PUT...
+- Mais comment fait-on pour dire quelle méthode utiliser? 
+	Alors là nous touchons un point sensible... Les navigateurs d'aujourd'hui (et surement de demain) ne comprennent que 2 méthodes, **GET** et **POST** et donc en navigant d'URL en URL il est impossible d'utiliser le pannel de méthodes proposées... Ceci dit, grâce à **Ajax**, nous pouvons dire quelle méthode en utilisant le paramètre ```method``` et ainsi nous pouvons communiquer avec notre serveur
+- Ok ... mais tu t'éloignes pas un peu du sujet là?
+	Ouf, j'avais peur que personne ne me fasse revenir à mes moutons donc c'est parti:
 
 ## Mais du coup?
-Du coup comme je vous disais, chaque controller Ã  diffÃ©rentes fonctions (index, create, ou ce que vous voulez...), et quand vous appellez une URL selon une mÃ©thode, vous appellez une fonction diffÃ©rente du controller.
-Exemple: Si vous appellez la page login en GET vous utiliserez la fonction login.INDEX, mais si vous l'appeller en POST alors vous emploierez la fonction login.CREATE... Un dernier truc, vous remarquerez qu'il y a un dossier ```server/services```, ce sont les fonctions gÃ©nÃ©rales qui peuvent Ãªtres appellÃ©es par diffÃ©rents controllers. Exemple : la connection Ã  la base de donnÃ©e, plutÃ´t que de faire la crÃ©ation dans chaque controller en mettant les paramÃ¨tres, appellez la fonctoin qui permet de le faire! Plus simple et plus rapide! 
-Et voila comment la front communique avec le back, et le back lui communiquera avec la BDD mais je vous rÃ©Ã©xplique un peu plus tard...
+Du coup comme je vous disais, chaque controller à différentes fonctions (index, create, ou ce que vous voulez...), et quand vous appellez une URL selon une méthode, vous appellez une fonction différente du controller.
+Exemple: Si vous appellez la page login en GET vous utiliserez la fonction login.INDEX, mais si vous l'appeller en POST alors vous emploierez la fonction login.CREATE... Un dernier truc, vous remarquerez qu'il y a un dossier ```server/services```, ce sont les fonctions générales qui peuvent êtres appellées par différents controllers. Exemple : la connection à la base de donnée, plutôt que de faire la création dans chaque controller en mettant les paramètres, appellez la fonctoin qui permet de le faire! Plus simple et plus rapide! 
+Et voila comment la front communique avec le back, et le back lui communiquera avec la BDD mais je vous rééxplique un peu plus tard...
 
 #FRONT
-Ouf on arrive enfin Ã  la partie qui nous intÃ©resse le plus (non?) le **FRONT**
-_Mais oÃ¹ est le HTML?_ Hey jeune padawan, tu attends un peu?
-Le front se situe donc dans le fichier ```public/```, que ce soient les scripts, les styles, les images et mÃªme... **LE HTML** ceci Ã©tant dit, le Html est fait sous forme de templates (une sorte de prÃ©processeurs), j'utilise pour cela **_PUG_** (qui est presque comme _JADE_)...
-Pourquoi utiliser un prÃ©processeur? Tout comme le Sass pour le CSS, le prÃ©processeur permet d'Ã©crire moins et surtout d'implÃ©menter directement des fonctions. Exemple, si je veux mettre un ```if``` dans mon HTML je peux, si je veux mettre une variable, je peux et surtout si je veux faire des imports/includes **JE PEUX!!** Cela me permet donc de crÃ©er un fichier ```header.pug``` que l'on appellera dans toutes nos pages (et on aura pas besoin de le rÃ©Ã©crire Ã  chaque fois!) C'est ce que l'on faisait avec PHP, sauf que l'on ne peut pas utiliser PHP sur du node... (bon peut Ãªtre que si, faudrait que je me renseigne)
+Ouf on arrive enfin à la partie qui nous intéresse le plus (non?) le **FRONT**
+_Mais où est le HTML?_ Hey jeune padawan, tu attends un peu?
+Le front se situe donc dans le fichier ```public/```, que ce soient les scripts, les styles, les images et même... **LE HTML** ceci étant dit, le Html est fait sous forme de templates (une sorte de préprocesseurs), j'utilise pour cela **_PUG_** (qui est presque comme _JADE_)...
+Pourquoi utiliser un préprocesseur? Tout comme le Sass pour le CSS, le préprocesseur permet d'écrire moins et surtout d'implémenter directement des fonctions. Exemple, si je veux mettre un ```if``` dans mon HTML je peux, si je veux mettre une variable, je peux et surtout si je veux faire des imports/includes **JE PEUX!!** Cela me permet donc de créer un fichier ```header.pug``` que l'on appellera dans toutes nos pages (et on aura pas besoin de le réécrire à chaque fois!) C'est ce que l'on faisait avec PHP, sauf que l'on ne peut pas utiliser PHP sur du node... (bon peut être que si, faudrait que je me renseigne)
 Du coup l'architecture est la suivante : 
 
-route | quÃ©zako?
+route | quézako?
 --- | ---
-```public/assets``` | Ici seront stockÃ©s les images, scripts et styles minimizÃ©s! (vous pouvez y mettre des fonts, et un peu tout ce que vous voulez qui sera utilisÃ© par les vues)
-```public/dev``` | Ce fichier sert pour le dÃ©veloppement des scripts, styles et Ã  stocker les images raw... qui serviront pour la minimisation des assets!
-```public/pages``` | Ici nous allons stocker des fichiers *PUG* qui servent pour le contenu de nos pages... Ces mÃªmes pages qui incluent des partials! C'est la racine de notre application!!! (voir plus bas)
-```public/partials``` | Enfin dans ce dossier nous stockerons les fichiers *PUG* qui servent Ã  inclure les Ã©lÃ©ments gÃ©nÃ©raux (header, footer...)
+```public/assets``` | Ici seront stockés les images, scripts et styles minimizés! (vous pouvez y mettre des fonts, et un peu tout ce que vous voulez qui sera utilisé par les vues)
+```public/dev``` | Ce fichier sert pour le développement des scripts, styles et à stocker les images raw... qui serviront pour la minimisation des assets!
+```public/pages``` | Ici nous allons stocker des fichiers *PUG* qui servent pour le contenu de nos pages... Ces mêmes pages qui incluent des partials! C'est la racine de notre application!!! (voir plus bas)
+```public/partials``` | Enfin dans ce dossier nous stockerons les fichiers *PUG* qui servent à inclure les éléments généraux (header, footer...)
 
-Avant de continuer il faut que je vous parle de la racine... Lorsque nous avons travailler avec Apache (XAMPP par exemple), la racine Ã  souvent Ã©tait ```www``` ou ```htdocs```. C'est Ã  dire que lorsque votre navigateur vous transmet une page, les images, l'HTML, le script... tout est contenu Ã  l'intÃ©rieur de ce dossier RACINE sinon il est inaccessible! Avec ```NODE``` vous pouvez choisir le dossier Racine, et pour ce projet celui-ci est : ```public/pages``` ce qui veut dire que tout ce qui se trouve Ã  l'extÃ©rieur n'est clairement pas accessible depuis le navigateur! (petite exception pour les assets qui eux sont accessibles grÃ¢ce a un paramÃ¨tre de node) Du coup, vous avez compris que le serveur n'est pas accessible depuis un navigateur et c'est pour cela qu'ajax est notre seul moyen de communication avec le serveur depuis la vue!
-TrÃ¨s bien mais comment fait-on pour minimizer nos fichiers ```dev```? C'est lÃ  qu'intervient **_GULP_**! J'ai crÃ©er un fichier gulpfile qui permet de minimiser les fichiers devs et de crÃ©Ã©r les fichiers assets... Pour cela c'est trÃ¨s simple dans un autre terminal vous n'aurez qu'Ã  utiliser la commande ```gulp watch``` et modifiez vos fichiers Ã  souhait!
+Avant de continuer il faut que je vous parle de la racine... Lorsque nous avons travailler avec Apache (XAMPP par exemple), la racine à souvent était ```www``` ou ```htdocs```. C'est à dire que lorsque votre navigateur vous transmet une page, les images, l'HTML, le script... tout est contenu à l'intérieur de ce dossier RACINE sinon il est inaccessible! Avec ```NODE``` vous pouvez choisir le dossier Racine, et pour ce projet celui-ci est : ```public/pages``` ce qui veut dire que tout ce qui se trouve à l'extérieur n'est clairement pas accessible depuis le navigateur! (petite exception pour les assets qui eux sont accessibles grâce a un paramètre de node) Du coup, vous avez compris que le serveur n'est pas accessible depuis un navigateur et c'est pour cela qu'ajax est notre seul moyen de communication avec le serveur depuis la vue!
+Très bien mais comment fait-on pour minimizer nos fichiers ```dev```? C'est là qu'intervient **_GULP_**! J'ai créer un fichier gulpfile qui permet de minimiser les fichiers devs et de créér les fichiers assets... Pour cela c'est très simple dans un autre terminal vous n'aurez qu'à utiliser la commande ```gulp watch``` et modifiez vos fichiers à souhait!
 
 # Oui mais moi MongoDB je connais pas... Une petite explication?
-TrÃ¨s bien, nous avons appris les bases de donnÃ©es avec Mysql qui est un systÃ¨me de gestion de bases de donnÃ©es en SQL, mongoDB est un systÃ¨me de gestion de bases de donnÃ©es en NoSQL. 
-Bon comme le cours doit Ãªtre rapide, je vais passer les dÃ©tails, mais en gros retenez cette approximation : MongoDB stocke en JSON Ã  la diffÃ©rence de MySQL qui stocke dans des fichiers .sql
-Du coup plutÃ´t que de demander de faire des jointures a MySQL puis de traduire le rÃ©sultat en JSON, il suffit juste de demander directement a Mongo qui nous transmet le rÃ©sultat en JSON sans forcÃ©ment faire de jointure... Car oui, la communication entre le serveur et le front se fait en _JSON_!
-**_Des jointures?_** En SQL, normalement on relie les tables entres elles par d'autres tables... Exemple, si vous avez une table USER ainsi qu'une table VIDEOS, vous devriez les _lier_ grÃ¢ce a une table USER_VIDEO qui rÃ©pertorie seulement l'ID de l'user ainsi que l'ID de la vidÃ©o... Avec le monde NoSQL c'est diffÃ©rent, vous n'avez plus besoin de ces tables jointures, vous pouvez directement stocker les vidÃ©os de l'USER directement dans la collection de l'USER... Ah et oui, en NoSQL, on appelle plus cela des tables mais des collections!
+Très bien, nous avons appris les bases de données avec Mysql qui est un système de gestion de bases de données en SQL, mongoDB est un système de gestion de bases de données en NoSQL. 
+Bon comme le cours doit être rapide, je vais passer les détails, mais en gros retenez cette approximation : MongoDB stocke en JSON à la différence de MySQL qui stocke dans des fichiers .sql
+Du coup plutôt que de demander de faire des jointures a MySQL puis de traduire le résultat en JSON, il suffit juste de demander directement a Mongo qui nous transmet le résultat en JSON sans forcément faire de jointure... Car oui, la communication entre le serveur et le front se fait en _JSON_!
+**_Des jointures?_** En SQL, normalement on relie les tables entres elles par d'autres tables... Exemple, si vous avez une table USER ainsi qu'une table VIDEOS, vous devriez les _lier_ grâce a une table USER_VIDEO qui répertorie seulement l'ID de l'user ainsi que l'ID de la vidéo... Avec le monde NoSQL c'est différent, vous n'avez plus besoin de ces tables jointures, vous pouvez directement stocker les vidéos de l'USER directement dans la collection de l'USER... Ah et oui, en NoSQL, on appelle plus cela des tables mais des collections!
 Exemple, vous pouvez avoir le fichier JSON suivant : 
 	
 	{
@@ -92,28 +92,27 @@ Exemple, vous pouvez avoir le fichier JSON suivant :
 		]
 	}
 
-Ainsi donc pas besoin de faire de multiples requÃªtes pour joindre toutes vos donnÃ©es, vous pourrez tout avoir en faisant une simple requÃªte!
-**_SELECT * FROM USERS ?_** bon bon bon, bien Ã©videmment MongoDB utilise une autre langue que MySQL, donc il faut apprendre un nouveau langage... Mais c'est assez simple, il faut retenir une structure : ```db.nomCollection.request({where})```
+Ainsi donc pas besoin de faire de multiples requêtes pour joindre toutes vos données, vous pourrez tout avoir en faisant une simple requête!
+**_SELECT * FROM USERS ?_** bon bon bon, bien évidemment MongoDB utilise une autre langue que MySQL, donc il faut apprendre un nouveau langage... Mais c'est assez simple, il faut retenir une structure : ```db.nomCollection.request({where})```
 Comment cela vous n'avez rien compris? En gros, si je veux avoir l'utilisateur dont l'ID est 1 de ma table USERS, je vais faire : ```db.USERS.find({id:1})``` Et voila!
-Il existe plein de requÃªtes diffÃ©rentes comme **find()**, **insert()**, **update()**, **remove()** ... et les connecteurs logiques sont toujours prÃ©sent pour amÃ©liorer vos WHERE comme : **$or**, **$and**...
-Si jamais le sujet vous intÃ©resse, vous pouvez suivre (ce petit cours d'Open Classrooms)[https://openclassrooms.com/courses/guide-de-demarrage-pour-utiliser-mongodb]
-Un dernier truc, j'essaie de garder des dumbs de mes diffÃ©rentes collections dans le dossier ```database``` il vous suffira juste d'utiliser la commande ```mongorestore``` pour les importer...
+Il existe plein de requêtes différentes comme **find()**, **insert()**, **update()**, **remove()** ... de plus les connecteurs logiques sont présent pour améliorer vos WHERE comme : **$or**, **$and**...
+Si jamais le sujet vous intéresse, vous pouvez suivre (ce petit cours d'Open Classrooms)[https://openclassrooms.com/courses/guide-de-demarrage-pour-utiliser-mongodb]
+Un dernier truc, j'essaie de garder des dumbs de mes différentes collections dans le dossier ```database``` il vous suffira juste d'utiliser la commande ```mongorestore``` pour les importer...
 
-# Pfiou c'est beaucoup d'infos lÃ ... RÃ©cap?
-
-Bon allez on va rÃ©capituler: 
-Le serveur permet de faire communiquer la base de donnÃ©e avec le back, puis permet d'envoyer ces infos au front grÃ¢ce aux diffÃ©rentes routes et mÃ©thodes employÃ©es!
-Il va vous falloir 3 terminaux diffÃ©rents qui devront tous Ãªtres ouverts depuis le chemin du projet : C:\Path\to\Videyo 
+# Pfiou c'est beaucoup d'infos là... Récap?
+Bon allez on va récapituler: 
+Le serveur permet de faire communiquer la base de donnée avec le back, puis permet d'envoyer ces infos au front grâce aux différentes routes et méthodes employées!
+Il va vous falloir 3 terminaux différents qui devront tous êtres ouverts depuis le chemin du projet : C:\Path\to\Videyo 
 
 - Un pour le serveur : ```node index.js```
-- Un pour la base de donnÃ©e : ```mongod```
+- Un pour la base de donnée : ```mongod```
 - Un pour gulp (si vous modifiez les assets) : ```gulp watch```
 
 # L'architecture (importante) est donc : 
 
 	| - index.js
 	| - gulpfile.js
-	| - package.json (sert a charger toutes les dÃ©pendances a NODE et Gulp)
+	| - package.json (sert a charger toutes les dépendances a NODE et Gulp)
 	| - server
 		| - index.js
 		| - configs.js
@@ -157,5 +156,5 @@ Il va vous falloir 3 terminaux diffÃ©rents qui devront tous Ãªtres ouverts depui
 #C'est parti pour l'aventure!!!
 
 # Copyright
-**Â© Simon Trichereau - 2016** <br/>
+**© Simon Trichereau - 2016**
 _This project is totally free for commercial or personnal use!_
