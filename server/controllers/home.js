@@ -4,8 +4,8 @@ let sess;
 
 function index (req, res) {
 	sess = req.session;
-	if (sess.logged === true) {
-		res.render('index', {logged: true, name: sess.pseudo, });
+	if (sess._id) {
+		res.render('index', {_id: sess._id, name: sess.pseudo, });
 	} else {
 		res.redirect('/login');
 	}

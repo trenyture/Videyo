@@ -10,7 +10,7 @@ const
 function index(req, res)
 {
 	let sess = req.session;
-	if (sess.logged === true)
+	if (sess._id)
 	{
 		res.redirect('/');
 	}
@@ -79,7 +79,7 @@ function create(req, res)
 									if(!err){
 										let sess = req.session;
 										sess.pseudo = req.body.pseudo;
-										sess.logged = true;
+										sess._id = datas._id;
 										crypt.hash(req.body.password, 10, function(err, hash) {
 											usersdb.update({"mail":req.body.mail.toLowerCase()}, {$set: {password:hash}}, {multi:true}, function (err) {
 												database.close();

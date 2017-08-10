@@ -8,7 +8,7 @@ const
 function index(req, res)
 {
 	let sess = req.session;
-	if (sess.logged === true)
+	if (sess._id)
 	{
 		res.redirect('/');
 	}
@@ -49,7 +49,7 @@ function create(req, res)
 											if(cond === true){
 												let sess = req.session;
 												sess.pseudo = req.body.pseudo;
-												sess.logged = true;
+												sess._id = doc[0]._id;
 												database.close();
 												res.send(true);
 											}else{

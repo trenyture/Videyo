@@ -1,7 +1,7 @@
 header
 	h1 
 		a(href="/") Videyo
-	if logged && logged === true
+	if _id
 		form#search
 			input#query(type="text" name="query" placeholder="Rechercher..." autofocus)
 			button(type="submit") #[span.lnr.lnr-magic-wand]
@@ -9,7 +9,7 @@ header
 		nav
 			ul
 				li
-					a(href="#") #[span.lnr.lnr-user] Mon Compte
+					a(href="/profile/"+_id) #[span.lnr.lnr-user] Mon Compte
 					ul.submenu
 						li
 							a(href="#") #[span.lnr.lnr-camera-video] Mettre vidéo en ligne
