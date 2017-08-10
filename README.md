@@ -10,9 +10,9 @@ Video Platform just for fun, relax! Take it eaaaaaaaasyyyyyyyiiiiieee :)
 	- Gulp
 
 # What should I install? :O
-- Install NODE js : (https://nodejs.org/)[https://nodejs.org/] 
-- Install Gulp : (http://gulpjs.com/)[https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md]
-- Install Mongo : (https://www.mongodb.com/)[https://www.mongodb.com/]
+- Install NODE js : [https://nodejs.org/](https://nodejs.org/) 
+- Install Gulp : [http://gulpjs.com/](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+- Install Mongo : [https://www.mongodb.com/](https://www.mongodb.com/)
 - Download the project in zip or : ``` git clone https://github.com/trenyture/Videyo.git ```
 - Install package.json : In your terminal ``` npm install ```
 - Now : **GOOD LUCK**
@@ -90,10 +90,10 @@ Exemple, vous pouvez avoir le fichier JSON suivant :
 
 Ainsi donc pas besoin de faire de multiples requêtes pour joindre toutes vos données, vous pourrez tout avoir en faisant une simple requête!<br/>
 **_SELECT * FROM USERS ?_** bon bon bon, bien évidemment MongoDB utilise une autre langue que MySQL, donc il faut apprendre un nouveau langage... Mais c'est assez simple, il faut retenir une structure : ``` db.nomCollection.request({where}) ```<br/>
-**Mais oui c'est clair!** 
+**Mais oui c'est clair!** <br/>
 Comment cela vous n'avez rien compris? En gros, si je veux avoir l'utilisateur dont l'ID est 1 de ma table USERS, je vais faire : ``` db.USERS.find({id:1}) ``` Et voila!<br/>
 Il existe plein de requêtes différentes comme **find()**, **insert()**, **update()**, **remove()** ... de plus les connecteurs logiques sont présent pour améliorer vos WHERE comme : **$or**, **$and**...<br/>
-Si jamais le sujet vous intéresse, vous pouvez suivre (ce petit cours d'Open Classrooms)[https://openclassrooms.com/courses/guide-de-demarrage-pour-utiliser-mongodb]<br/>
+Si jamais le sujet vous intéresse, vous pouvez suivre [ce petit cours d'Open Classrooms](https://openclassrooms.com/courses/guide-de-demarrage-pour-utiliser-mongodb)<br/>
 Un dernier truc, j'essaie de garder des dumbs de mes différentes collections dans le dossier ``` database ``` il vous suffira juste d'utiliser la commande ``` mongorestore ``` pour les importer...<br/>
 
 # Pfiou c'est beaucoup d'infos là... Récap?
