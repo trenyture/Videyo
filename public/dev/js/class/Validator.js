@@ -10,14 +10,7 @@ function Validator ()
 		{
 			if(regPass.test(pass) === true)
 			{
-				if(typeof(passConf) !== 'undefined' && pass !== passConf)
-				{
-					return 'Les mots de passes ne correspondent pas!';
-				}
-				else
-				{
-					return true;
-				}
+				return (typeof(passConf) !== 'undefined' && pass !== passConf) ? 'Les mots de passes ne correspondent pas!' : true;
 			}
 			else
 			{
@@ -34,14 +27,7 @@ function Validator ()
 	{
 		if(email !== '')
 		{
-			if(regMail.test(email) === true)
-			{
-				return true;
-			}
-			else
-			{
-				return 'Veuillez renseigner un email valide!';
-			}
+			return (regMail.test(email) === true) ? true : 'Veuillez renseigner un email valide!' ;
 		}
 		else
 		{
@@ -53,11 +39,7 @@ function Validator ()
 	{
 		if (pseudo !== '')
 		{
-			if (pseudo.length < 5) {
-				return "L'identifiant est trop court";
-			} else {
-				return true;
-			}
+			return (pseudo.length < 5) ? "L'identifiant est trop court" : true ;
 		}
 		else
 		{

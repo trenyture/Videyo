@@ -75,10 +75,6 @@
 			{
 				nUrl = (typeof nUrl === 'undefined') ? '/' : nUrl;
 				var datos = $(form).serializeObject();
-				$.each(datos, function(index, value)
-				{
-					datos[index] = value.trim();
-				});
 				$.ajax({
 					type:'POST',
 					data: datos,
@@ -95,7 +91,20 @@
 									$(this).remove();
 								});
 							}
-							$('ul#error').html('<li>'+data+'</li>');
+							if(typeof data === 'string')
+							{
+								$(form).find('ul#error').html('<li>'+data+'</li>');
+							}
+							else if (typeof data === 'object')
+							{
+								var lisError = '';
+								for(var i in data){
+									if(data[i] !== true && data[i] !== 'true'){
+										lisError += '<li>'+data[i]+'</li>';
+									}
+								}
+								$(form).find('ul#error').html(lisError);
+							}
 						}
 					}
 				});

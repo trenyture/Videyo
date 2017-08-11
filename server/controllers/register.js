@@ -4,6 +4,7 @@ const
 	Hashids = require('hashids'),
 	crypt = require('bcrypt'),
 	validator = require('../services/validate'),
+	htmlspecialchars = require('../services/htmlspecialchars'),
 	mongo = require('../services/database'),
 	database = mongo.init();
 
@@ -23,44 +24,14 @@ function index(req, res)
 function create(req, res)
 {
 	if(req.body.mail && req.body.pseudo && req.body.password && req.body.password_verif && req.body.conditions){
-		let valid = true,
-			errorMsg = [];
+		Object.keys(req.body).map(function(objectKey, index) {
+			req.body[objectKey]  = htmlspecialchars.encode(req.body[objectKey].trim());
+		});
 		//VERIFICATIONS VARIABLES
-		if(req.body.mail === ''){
-			valid = false;
-			errorMsg.push('Veuillez renseigner un email');
-		}else{
-			if(!validator.email(req.body.mail)){
-				valid = false;
-				errorMsg.push('Veuillez entrer un email valide');
-			}
-		}
-		if(req.body.pseudo === ''){
-			valid = false;
-			errorMsg.push('Veuilliez renseigner un pseudonnyme');
-		}else{
-			if(req.body.pseudo.length < 5){
-				valid = false;
-				errorMsg.push('Le pseudonnyme est trop court!');	
-			}
-		}
-		if (req.body.password === '' || req.body.password_verif === '') {
-			valid = false;
-			errorMsg.push('Vous devez renseigner votre mot de passe ainsi que sa vérification');
-		}else{
-			if(!validator.passwordStrength(req.body.password)){
-				valid = false;
-				errorMsg.push('Le mot de passe doit au moins contenir 10 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial');
-			}
-
-			if(!validator.password(req.body.password, req.body.password_verif)){
-				valid = false;
-				errorMsg.push('Les mots de passe ne correspondent pas');
-			}
-		}
-		if (valid === false){
-			res.send(JSON.stringify(errorMsg));
-		}else{
+		let validEmail = validator.email(req.body.mail),
+			validPseudo = validator.pseudo(req.body.pseudo),
+			validPass = validator.password(req.body.password, req.body.password_verif);
+		if (validEmail === true && validPseudo === true && validPass === true) {
 			//BASE DE DONNÉE
 			database.open(function(err, db){
 				if(!err){
@@ -78,7 +49,7 @@ function create(req, res)
 								usersdb.insert(datas, function(err, result){
 									if(!err){
 										let sess = req.session;
-										sess.pseudo = req.body.pseudo;
+										sess.pseudo = htmlspecialchars.decode(req.body.pseudo);
 										sess._id = datas._id;
 										crypt.hash(req.body.password, 10, function(err, hash) {
 											usersdb.update({"mail":req.body.mail.toLowerCase()}, {$set: {password:hash}}, {multi:true}, function (err) {
@@ -122,6 +93,8 @@ function create(req, res)
 					res.send('Il y a un problème avec la base de donnée');
 				}
 			});
+		} else {
+			res.send([validEmail, validPseudo, validPass]);
 		}
 	}else{
 		res.send('Tous les champs sont obligatoires!');
