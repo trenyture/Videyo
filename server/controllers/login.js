@@ -48,7 +48,7 @@ function create(req, res)
 										crypt.compare(req.body.password.trim(), doc[0].password, function(err, cond) {
 											if(cond === true){
 												let sess = req.session;
-												sess.pseudo = req.body.pseudo;
+												sess.pseudo = doc[0].pseudo;
 												sess._id = doc[0]._id;
 												database.close();
 												res.send(true);
