@@ -2,6 +2,7 @@
 
 
 const
+	htmlspecialchars = require('../services/htmlspecialchars'),
 	mongo = require('../services/database'),
 	database = mongo.init();
 
@@ -9,7 +10,7 @@ let sess;
 
 function index (req, res) {
 	sess = req.session;
-	if (sess._id){
+	if (sess._id && req.params.id){
 		let id = req.params.id;
 		database.open(function(err, db){
 			if (!err) {
@@ -19,8 +20,10 @@ function index (req, res) {
 						cursor.toArray(function(err, doc) {
 							database.close();
 							if(!err){
-								console.log(doc);
-								res.render('user', {_id: sess._id, name: sess.pseudo, });
+								Object.keys(doc[0]).map(function(objectKey, index) {
+									doc[0][objectKey]  = htmlspecialchars.decode(doc[0][objectKey].trim());
+								});
+								res.render('user', {_id: sess._id, name: sess.pseudo, profile: doc[0]});
 							}else{
 								res.redirect('/');
 							}
@@ -34,7 +37,7 @@ function index (req, res) {
 			}
 		});
 	} else {
-		res.redirect('/login');
+		res.redirect('/');
 	}
 }
 

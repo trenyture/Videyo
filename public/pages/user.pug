@@ -2,7 +2,10 @@ include ../partials/head
 include ../partials/header
 main#user
 	section
-		h2 Profil de #{name}
+		h2 Profil de 
+			a(href="mailto:"+profile.mail) #{profile.pseudo}
+		if _id === profile._id
+			a(href="/editProfile") Éditer profil
 		p Salut ca va?
 		p Bien et toi?
 include ../partials/footer

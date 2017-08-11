@@ -86,8 +86,10 @@
 						}
 						else
 						{
-							if($('body #modal').length > 0){
-								$('body #modal').each(function(){
+							if($('body #modal').length > 0)
+							{
+								$('body #modal').each(function()
+								{
 									$(this).remove();
 								});
 							}
@@ -98,8 +100,10 @@
 							else if (typeof data === 'object')
 							{
 								var lisError = '';
-								for(var i in data){
-									if(data[i] !== true && data[i] !== 'true'){
+								for(var i in data)
+								{
+									if(data[i] !== true && data[i] !== 'true')
+									{
 										lisError += '<li>'+data[i]+'</li>';
 									}
 								}
@@ -139,8 +143,10 @@
 				else
 				{
 					var lisError = '';
-					for(var i = 0; i < valid.length; i++){
-						if (valid[i] !== true) {
+					for(var i in valid)
+					{
+						if (valid[i] !== true)
+						{
 							lisError += '<li>'+valid[i]+'</li>';
 						}
 					}
@@ -152,7 +158,7 @@
 		{
 			var validate =	new Validator();
 			var pseudo = validate.pseudo($(form).find('input#pseudo').val());
-			var password = validate.password($(form).find('input#password').val());
+			var password = ($(form).find('input#password').val() === '')?'Veuillez renseigner le mot de Passe':true;
 			if (pseudo === true && password === true)
 			{
 				return true;

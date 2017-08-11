@@ -27,7 +27,7 @@ function create(req, res)
 			req.body[objectKey]  = htmlspecialchars.encode(req.body[objectKey].trim());
 		});
 		let validPseudo = validator.pseudo(req.body.pseudo),
-			validPass = validator.password(req.body.password);
+			validPass = (req.body.password === '')?'Veuillez renseigner le mot de Passe':true;
 		if(validPseudo === true && validPass === true){
 			database.open(function(err, db) {
 				if(!err) {
